@@ -84,3 +84,19 @@ a {
     /* margin: auto auto; */
     display: inline-block;
 }
+
+@media (min-width: 320px) {
+    .container {
+        display: none;
+    }
+}
+@media (min-width: 801px) {
+    .container {
+        display: none;
+    }
+}
+@media (min-width: 1025px) {
+    .container {
+        display: block;
+    }
+}
