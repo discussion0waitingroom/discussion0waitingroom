@@ -15,9 +15,8 @@
 var enjoyhint_instance;
 var timer;
 var serverHost = "http://143.248.249.114:4000/room/index.html";
-var amModerator = document.location.pathname.includes("moderator")
-    ? true
-    : false;
+var amModerator =
+    document.location.pathname.indexOf("moderator") > 0 ? true : false;
 
 function init() {
     enjoyhint_instance = new EnjoyHint({
@@ -215,7 +214,7 @@ function makeQuestionsInactive() {
 function countVote(ele, i) {
     var container = ele.parentElement;
     if (!container.classList.contains("active")) {
-        if (ele.className.includes("like") || i > 1)
+        if (ele.className.indexOf("like") > 0 || i > 1)
             container.classList.add("active");
         container.querySelector(".section-item-population").innerText =
             "(" + i + "/5)";
