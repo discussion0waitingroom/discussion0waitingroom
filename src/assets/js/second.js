@@ -1,6 +1,3 @@
-import "core-js/es/map";
-import "core-js/es/set";
-
 var enjoyhint_steps = [
     // {
     //     // 0
@@ -105,14 +102,24 @@ var enjoyhint_steps = [
             var chats = Array.from(
                 document.querySelectorAll(".chatroom-utterances-wrapper.hide")
             );
-            for (const [i, ele] of chats.entries()) {
+
+            for (let i = 0; i < chats.entries(); i++) {
                 setTimeout(function() {
-                    ele.classList.remove("hide");
-                    ele.scrollIntoView(false);
+                    chats.entries()[i].classList.remove("hide");
+                    chats.entries()[i].scrollIntoView(false);
                 }, i * 100);
 
-                if (ele.classList.contains("evidence")) break;
+                if (chats.entries()[i].classList.contains("evidence")) break;
             }
+
+            // for (const [i, ele] of chats.entries()) {
+            //     setTimeout(function() {
+            //         ele.classList.remove("hide");
+            //         ele.scrollIntoView(false);
+            //     }, i * 100);
+
+            //     if (ele.classList.contains("evidence")) break;
+            // }
 
             document.querySelector(".enjoyhint_svg_wrapper").style.transform =
                 "";
