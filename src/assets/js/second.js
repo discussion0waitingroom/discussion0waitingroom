@@ -1,3 +1,6 @@
+import "core-js/es/map";
+import "core-js/es/set";
+
 var enjoyhint_steps = [
     // {
     //     // 0
