@@ -1,4 +1,5 @@
 import * as Papa from "papaparse";
+import "isomorphic-fetch";
 
 // add the urls of the chat room to here !
 // https://docs.google.com/spreadsheets/d/173OIZL1s1u0iD0m3swshseFh-z9tWDx9lPJHWVsROTQ/edit#gid=0
@@ -8,14 +9,18 @@ var API_KEY = "AIzaSyADT3iqNAWUl75iqvwuT1yKVN7dlew2EvI";
 
 function fetchSheet({ spreadsheetId, apiKey, complete }) {
     let url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/roomKey/?key=${apiKey}`;
-    return fetch(url).then(response =>
+    return fetch(url).then(response => {
+        if (response.status >= 400) {
+            throw new Error("Bad response from server");
+        }
+
         response.json().then(result => {
             let data = Papa.parse(Papa.unparse(result.values), {
                 header: true
             });
             complete(data);
-        })
-    );
+        });
+    });
 }
 
 function init() {
