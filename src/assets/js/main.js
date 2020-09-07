@@ -159,7 +159,7 @@ function addChat(val, isModerator) {
 
     value += val;
     // let isSecond = val.includes("위험성");
-    if (val.indexOf("위험성") !== -1) {
+    if (val.indexOf("위험성") > 0) {
         value += '<div class="btn-add"><span>후보 등록</span></div>';
     }
 

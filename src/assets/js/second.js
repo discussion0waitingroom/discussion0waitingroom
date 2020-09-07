@@ -1,3 +1,5 @@
+import "./pollyfills.ts";
+
 var enjoyhint_steps = [
     // {
     //     // 0
