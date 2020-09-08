@@ -38,6 +38,7 @@ function isIE() {
 
 function init() {
     if (isIE()) {
+        console.log("I am ie user");
         document.querySelector(".tutorial-button").href("http://www.naver.com");
     }
 
