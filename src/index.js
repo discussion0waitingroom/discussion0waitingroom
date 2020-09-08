@@ -59,7 +59,7 @@ function dataArray(result) {
         var a = data[i]["roomURL"];
         var newAdress = a.concat(`&roomName=팀1-${i + 1}`);
 
-        console.log(newAdress);
+        // console.log(newAdress);
         roomList_child += `
 		<div class="col s3 ">
 					<div class="card card-style">
