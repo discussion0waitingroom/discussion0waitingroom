@@ -80,7 +80,7 @@ var enjoyhint_steps = [
     {
         // 1
         "next .chatbox-input-wrapper":
-            "채팅 창에서 자유롭게 의견을 나눠보세요. <b>엔터</b>를 눌러 등록하실 수 있어요!",
+            "채팅 창에서 자유롭게 의견을 나눌 수 있어요! <b>엔터</b>를 눌러 등록하실 수 있어요!",
         showSkip: false,
         nextButton: { text: "다음" },
         onBeforeStart: function() {

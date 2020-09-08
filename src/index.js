@@ -39,7 +39,11 @@ function notIE() {
 function init() {
     if (!notIE()) {
         console.log("I am ie user");
-        document.querySelector(".tutorial-button").href("http://www.naver.com");
+
+        let tutorial_section = document.getElementById("tutorial");
+
+        tutorial_section.innerHTML =
+            '<a class="pulse waves-effect waves-light btn-large tutorial-button" href="https://www.naver.com">튜토리얼 보기</a>';
     }
 
     fetchSheet({
