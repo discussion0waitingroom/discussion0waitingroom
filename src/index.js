@@ -23,7 +23,24 @@ function fetchSheet({ spreadsheetId, apiKey, complete }) {
     });
 }
 
+function isIE() {
+    var ua = window.navigator.userAgent;
+    if (
+        ua.indexOf("Edge/") > 0 ||
+        ua.indexOf("Trident/") > 0 ||
+        ua.indexOf("MSIE ") > 0
+    ) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
 function init() {
+    if (isIE()) {
+        document.querySelector(".tutorial-button").href("http://www.naver.com");
+    }
+
     fetchSheet({
         spreadsheetId: SHEET_ID,
         apiKey: API_KEY,
