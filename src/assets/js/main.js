@@ -19,12 +19,24 @@ var amModerator = document.location.pathname.includes("moderator")
     ? true
     : false;
 
-function init() {
+function notIE() {
     var ua = window.navigator.userAgent;
-    var isIE = /MSIE|Trident/.test(ua);
+    if (
+        ua.indexOf("Edge/") > 0 ||
+        ua.indexOf("Trident/") > 0 ||
+        ua.indexOf("MSIE ") > 0
+    ) {
+        return false;
+    } else {
+        return true;
+    }
+}
 
-    if (isIE) {
-        console.log("I am IE!");
+function init() {
+    if (notIE()) {
+        console.log("I am not IE");
+    } else {
+        console.log("nono");
     }
 
     enjoyhint_instance = new EnjoyHint({
