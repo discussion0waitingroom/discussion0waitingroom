@@ -3,8 +3,16 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
     entry: {
         home: ["@babel/polyfill", __dirname + "/src/index.js"],
-        second: ["@babel/polyfill", __dirname + "/src/assets/js/second.js"],
-        third: ["@babel/polyfill", __dirname + "/src/assets/js/third.js"]
+        second: [
+            "@babel/polyfill",
+            __dirname + "/src/assets/js/second.js",
+            __dirname + "/src/assets/js/main.js"
+        ],
+        third: [
+            "@babel/polyfill",
+            __dirname + "/src/assets/js/third.js",
+            __dirname + "/src/assets/js/main.js"
+        ]
     },
     output: {
         path: __dirname + "/dist",
