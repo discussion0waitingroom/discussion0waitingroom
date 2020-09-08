@@ -41,14 +41,10 @@ function init() {
         console.log("I am ie user");
 
         let tutorial_section = document.getElementById("tutorial");
-        var roomLitutorial_section_child = "";
 
-        roomLitutorial_section_child +=
-            '<a class="pulse waves-effect waves-light btn-large tutorial-button" href="https://discussionchat.github.io/#1">튜토리얼 보기</a>';
-        roomLitutorial_section_child +=
-            '			<a class="grey waves-effect waves-light btn-large discussion-button" href="#anchor">토론방 바로가기</a>';
-
-        tutorial_section.innerHTML(roomLitutorial_section_child);
+        tutorial_section.innerHTML =
+            '<a class="pulse waves-effect waves-light btn-large tutorial-button" href="https://discussionchat.github.io/#1">튜토리얼 보기</a> \
+			<a class="grey waves-effect waves-light btn-large discussion-button" href = "#anchor" > 토론방 바로가기</a > ';
     }
 
     fetchSheet({
