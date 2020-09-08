@@ -79,10 +79,11 @@ var enjoyhint_steps = [
     },
     {
         // 1
-        "key .chatbox-input-wrapper":
+        "next .chatbox-input-wrapper":
             "채팅 창에서 자유롭게 의견을 나눠보세요. <b>엔터</b>를 눌러 등록하실 수 있어요!",
         keyCode: 13,
         showSkip: false,
+        nextButton: { text: "다음" },
         onBeforeStart: function() {
             // setTimeout(function() {
             //     document.querySelector(".enjoy_hint_label").style.transform =
@@ -114,23 +115,20 @@ var enjoyhint_steps = [
             //     chats.push(length[i]);
             // }
 
-            if (!chats.entries())
-                chats.entries = function(obj) {
-                    var ownProps = Object.keys(obj),
-                        i = ownProps.length,
-                        resArray = new Array(i); // preallocate the Array
-                    while (i--) resArray[i] = [ownProps[i], obj[ownProps[i]]];
+            var chatArray = [];
 
-                    return resArray;
-                };
+            for (let i = 0; i < chats.length; i++) {
+                chatArray.push([i, Object.values(chats)[i]]);
+            }
 
-            for (const [i, ele] of chats.entries()) {
+            console.log(chatArray);
+            for (let i = 0; i < chatArray.length; i++) {
                 setTimeout(function() {
-                    ele.classList.remove("hide");
-                    ele.scrollIntoView(false);
+                    chatArray[i][1].classList.remove("hide");
+                    chatArray[i][1].scrollIntoView(false);
                 }, i * 100);
 
-                if (ele.classList.contains("evidence")) break;
+                if (chatArray[i][1].classList.contains("evidence")) break;
             }
 
             // for (let i = 0; i < chats.entries(); i++) {

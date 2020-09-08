@@ -237,7 +237,6 @@ function addChat(val, isModerator) {
 
     value += val;
     let isSecond = val.indexOf("위험성") > 0;
-    console.log(isSecond);
 
     if (val.indexOf("위험성") > 0) {
         value += '<div class="btn-add"><span>후보 등록</span></div>';
