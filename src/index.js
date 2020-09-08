@@ -37,14 +37,14 @@ function notIE() {
 }
 
 function init() {
-    if (!notIE()) {
-        console.log("I am ie user");
+    // if (!notIE()) {
+    //     console.log("I am ie user");
 
-        let tutorial_section = document.getElementById("tutorial");
+    //     let tutorial_section = document.getElementById("tutorial");
 
-        tutorial_section.innerHTML =
-            '<a class="pulse waves-effect waves-light btn-large tutorial-button" href="https://www.naver.com">튜토리얼 보기</a>';
-    }
+    //     tutorial_section.innerHTML =
+    //         '<a class="pulse waves-effect waves-light btn-large tutorial-button" href="https://www.naver.com">튜토리얼 보기</a>';
+    // }
 
     fetchSheet({
         spreadsheetId: SHEET_ID,
