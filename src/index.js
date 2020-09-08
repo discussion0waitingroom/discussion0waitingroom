@@ -23,7 +23,7 @@ function fetchSheet({ spreadsheetId, apiKey, complete }) {
     });
 }
 
-function isIE() {
+function notIE() {
     var ua = window.navigator.userAgent;
     if (
         ua.indexOf("Edge/") > 0 ||
@@ -37,7 +37,7 @@ function isIE() {
 }
 
 function init() {
-    if (isIE()) {
+    if (!notIE()) {
         console.log("I am ie user");
         document.querySelector(".tutorial-button").href("http://www.naver.com");
     }
