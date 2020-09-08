@@ -103,14 +103,44 @@ var enjoyhint_steps = [
                 document.querySelectorAll(".chatroom-utterances-wrapper.hide")
             );
 
-            for (let i = 0; i < chats.entries(); i++) {
+            // add some chats
+            // var chats = [];
+
+            // var length = document.querySelectorAll(
+            //     ".chatroom-utterances-wrapper.hide"
+            // ).length;
+
+            // for (var i = 0; i < length; i++) {
+            //     chats.push(length[i]);
+            // }
+
+            if (!chats.entries())
+                chats.entries = function(obj) {
+                    var ownProps = Object.keys(obj),
+                        i = ownProps.length,
+                        resArray = new Array(i); // preallocate the Array
+                    while (i--) resArray[i] = [ownProps[i], obj[ownProps[i]]];
+
+                    return resArray;
+                };
+
+            for (const [i, ele] of chats.entries()) {
                 setTimeout(function() {
-                    chats.entries()[i].classList.remove("hide");
-                    chats.entries()[i].scrollIntoView(false);
+                    ele.classList.remove("hide");
+                    ele.scrollIntoView(false);
                 }, i * 100);
 
-                if (chats.entries()[i].classList.contains("evidence")) break;
+                if (ele.classList.contains("evidence")) break;
             }
+
+            // for (let i = 0; i < chats.entries(); i++) {
+            //     setTimeout(function() {
+            //         chats.entries()[i].classList.remove("hide");
+            //         chats.entries()[i].scrollIntoView(false);
+            //     }, i * 100);
+
+            //     if (chats.entries()[i].classList.contains("evidence")) break;
+            // }
 
             // for (const [i, ele] of chats.entries()) {
             //     setTimeout(function() {
