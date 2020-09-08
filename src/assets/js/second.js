@@ -118,7 +118,10 @@ var enjoyhint_steps = [
             var chatArray = [];
 
             for (let i = 0; i < chats.length; i++) {
-                chatArray.push([i, Object.values(chats)[i]]);
+                var values = Object.keys(chats).map(function(e) {
+                    return chats[e];
+                });
+                chatArray.push([i, values[i]]);
             }
 
             console.log(chatArray);
