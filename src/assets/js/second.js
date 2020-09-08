@@ -81,24 +81,9 @@ var enjoyhint_steps = [
         // 1
         "next .chatbox-input-wrapper":
             "채팅 창에서 자유롭게 의견을 나눠보세요. <b>엔터</b>를 눌러 등록하실 수 있어요!",
-        keyCode: 13,
         showSkip: false,
         nextButton: { text: "다음" },
         onBeforeStart: function() {
-            // setTimeout(function() {
-            //     document.querySelector(".enjoy_hint_label").style.transform =
-            //         "translateX(-400px)";
-            //     document.querySelector(
-            //         ".enjoyhint_svg_wrapper"
-            //     ).style.transform = "rotateY(180deg) translateX(400px)";
-            //     document.querySelector(".enjoyhint_next_btn").style.transform =
-            //         "translateX(-400px)";
-            // }, 800);
-
-            // Array.from(document.querySelectorAll(".list-item-like")).forEach(function(ele) {
-            //     ele.removeEventListener("click", countVote);
-            // });
-
             // add some chats
             var chats = Array.from(
                 document.querySelectorAll(".chatroom-utterances-wrapper.hide")
@@ -124,7 +109,6 @@ var enjoyhint_steps = [
                 chatArray.push([i, values[i]]);
             }
 
-            console.log(chatArray);
             for (let i = 0; i < chatArray.length; i++) {
                 setTimeout(function() {
                     chatArray[i][1].classList.remove("hide");
@@ -169,12 +153,20 @@ var enjoyhint_steps = [
     },
     {
         // 2
-        event: "click",
-
-        selector: ".evidence + .chatroom-utterances-wrapper .btn-add",
-        description:
+        // event: "next",
+        showSkip: false,
+        "next .chatroom-utterances-wrapper.end span.btn-add":
             "좋은 의견이 있다면, 모든 사람들이 볼 수 있도록 후보로 등록해보세요! <br>특정 메시지 위에 마우스를 두면 오른쪽에 나타나는 <b>'후보 등록'</b> 버튼으로 등록하실 수 있어요! ",
-        showSkip: false
+        nextButton: { text: "다음" },
+        onBeforeStart: function() {
+            var chats = Array.from(
+                document.querySelectorAll(".chatroom-utterances-wrapper")
+            );
+            if (chats.length < 10) {
+                addChat(chatInput.value, amModerator);
+                chatInput.value = "";
+            }
+        }
     },
     // {
     //     // 7
@@ -184,11 +176,24 @@ var enjoyhint_steps = [
     // },
     {
         // 3
-        "key .input-list-new":
+        "next .input-list-new":
             "혹시 필요하면 직접 입력할 수도 있습니다. <b>엔터</b>를 눌러 원인을 입력해보세요!",
-        keyCode: 13,
+        nextButton: { text: "다음" },
         showSkip: false,
         onBeforeStart: function() {
+            console.log(document.querySelector(".btn-add.active"));
+            document.querySelector(".btn-add.active").style.animation = "none";
+            document.querySelector(".btn-add.active").style.opacity = 0;
+
+            // document.querySelector".btn-add").style.animation = "none";
+
+            var arrayItem = Array.from(
+                document.querySelectorAll(".section-list-item")
+            );
+            if (arrayItem.length < 4) {
+                addItem("개인정보 유출의 위험성");
+            }
+
             var example = "데이터 수집 가이드라인 부족";
             Array.from(example).forEach(function(ele, i) {
                 setTimeout(function() {
@@ -201,13 +206,19 @@ var enjoyhint_steps = [
     },
     {
         // 4
-        "custom a.list-item-like .current":
+        "next a.list-item-like .current":
             "맘에 드는 의견이 있다면 손가락 버튼을 눌러 <b>투표</b>를 해보세요😃 중복 투표가 가능합니다.",
         // event: "vote",
         showSkip: false,
         nextButton: { text: "다음" },
 
         onBeforeStart: function() {
+            var arrayItem = Array.from(
+                document.querySelectorAll(".section-list-item")
+            );
+            if (arrayItem.length < 5) {
+                addItem("데이터 수집 가이드라인 부족");
+            }
             Array.from(document.querySelectorAll(".list-item-like")).forEach(
                 function(ele) {
                     ele.addEventListener("click", function(e) {

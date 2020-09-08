@@ -224,8 +224,9 @@ var enjoyhint_steps_moderator = [
 
 //1
 enjoyhint_steps_moderator[1] = {
-    "custom a.list-item-delete .current":
+    "next a.list-item-delete .current":
         "토의자들이 의견을 추가하였습니다. <br>부적절한 의견은 <b>휴지통 버튼을 눌러 삭제</b>해주세요.",
+    nextButton: { text: "다음" },
     showSkip: false,
     onBeforeStart: function() {
         addItem("모르게쪄염 >_<");
@@ -256,6 +257,15 @@ enjoyhint_steps_moderator[2] = {
     showSkip: false,
     nextButton: { text: "네 👍🏻" },
     onBeforeStart: function() {
+        var arrayItem = Array.from(
+            document.querySelectorAll(".section-list-item")
+        );
+
+        console.log(arrayItem);
+        if (arrayItem.length > 6) {
+            arrayItem[4].remove();
+        }
+
         setTimeout(function() {
             countVote(document.querySelectorAll(".list-item-delete")[0], 5);
         }, 500);
@@ -300,9 +310,10 @@ enjoyhint_steps_moderator[2] = {
 
 // splice (from back)
 enjoyhint_steps_moderator.splice(6, 0, {
-    "click .overview-next-button":
+    "next .overview-next-button":
         "일정 시간이 지나면 강연자의 안내에 따라 <b>'다음 단계' 버튼을 클릭</b>해서 <br>다음 질문으로 넘어가세요.",
     showSkip: false,
+    nextButton: { text: "네 👍🏻" },
     onBeforeStart: function() {
         // add some chats
         var chats = Array.from(
@@ -323,19 +334,19 @@ enjoyhint_steps_moderator.splice(6, 0, {
             }, i * 50);
         });
 
-        document.querySelector(".overview-next-button").onclick = function() {
-            let original = this;
-            let btn = original.cloneNode();
-            btn.innerHTML = original.innerHTML;
-            let here = original.parentElement.parentElement.nextElementSibling.nextElementSibling.querySelector(
-                ".overview-section"
-            );
+        // document.querySelector(".overview-next-button").onclick = function() {
+        //     let original = this;
+        //     let btn = original.cloneNode();
+        //     btn.innerHTML = original.innerHTML;
+        //     let here = original.parentElement.parentElement.nextElementSibling.nextElementSibling.querySelector(
+        //         ".overview-section"
+        //     );
 
-            setTimeout(function() {
-                original.remove();
-                here.insertBefore(btn, here.firstChild);
-            }, 1000);
-        };
+        //     setTimeout(function() {
+        //         original.remove();
+        //         here.insertBefore(btn, here.firstChild);
+        //     }, 1000);
+        // };
     }
 });
 
@@ -371,9 +382,10 @@ enjoyhint_steps_moderator.splice(6, 0, {
 
 //3
 enjoyhint_steps_moderator.splice(3, 0, {
-    "custom .feedback":
+    "next .feedback":
         "사회자 역할에서는 AI가 원활한 토론을 위한 답변을 추천해줍니다.<br><b>클릭해서 추천된 답변을 사용</b>해보세요!",
     showSkip: false,
+    nextButton: { text: "다음" },
     onBeforeStart: function() {
         // setTimeout(function() {
         //     document.querySelector(".enjoy_hint_label").style.transform =
@@ -434,9 +446,10 @@ enjoyhint_steps_moderator.splice(3, 0, {
 });
 
 enjoyhint_steps_moderator.splice(4, 0, {
-    "custom .feedback-wrapper":
+    "next .feedback-wrapper":
         "이곳에는 토론에 도움이 되는 사회자 상용구가 표시됩니다. <br>이번에는 이번 단계를 소개하는 상용구가 추천해주네요. <br><b>클릭해서 해당 상용구를 사용</b>해보세요!",
     showSkip: false,
+    nextButton: { text: "다음" },
     onBeforeStart: function() {
         document.querySelector(".enjoyhint_svg_wrapper").style.transform = "";
         document.querySelector(".enjoyhint_next_btn").style.transform = "";

@@ -663,18 +663,20 @@ input,
 .chatroom-container .chatroom-utterances-wrapper:hover {
     background-color: #fafafa;
 }
+/* 
 .chatroom-container
     .chatroom-utterances-wrapper:hover
     .chatroom-utterances-text
     .btn-add {
     opacity: 0.88;
-}
+} */
 .chatroom-container .chatroom-utterances-text {
     line-height: 1.6;
     font-size: 0.95rem;
     padding: 0.4rem 1rem;
     margin-left: 2.5rem;
 }
+
 .chatroom-container .chatroom-utterances-text .btn-add {
     position: absolute;
     top: 0.25rem;
@@ -701,6 +703,11 @@ input,
 }
 .chatroom-container .chatroom-utterances-text .btn-add span:last-child {
     border-right: none;
+}
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
 }
 .chatroom-container .chatroom-utterances-text .btn-add span:hover {
     background-color: #eee;
