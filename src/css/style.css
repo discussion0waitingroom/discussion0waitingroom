@@ -104,3 +104,15 @@ a {
         display: block;
     }
 }
+
+#roomList {
+    margin-top: 10%;
+}
+
+#enter-discussionroom {
+    margin-top: 10%;
+}
+
+#firstpage {
+    margin: 20%;
+}

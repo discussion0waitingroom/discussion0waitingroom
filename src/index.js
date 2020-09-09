@@ -44,7 +44,7 @@ function init() {
 
         tutorial_section.innerHTML =
             '<a class="pulse waves-effect waves-light btn-large tutorial-button" href="https://discussionchat.github.io/#1">튜토리얼 보기</a> \
-			<a class="grey waves-effect waves-light btn-large discussion-button" href = "#anchor" > 토론방 바로가기</a > ';
+			<a class="grey waves-effect waves-light btn-large discussion-button" href = "#anchor" > 토론방 바로가기</a> ';
     }
 
     fetchSheet({
