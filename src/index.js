@@ -62,16 +62,19 @@ function dataArray(result) {
 
     for (let i = 0; i < data.length; i++) {
         var a = data[i]["roomURL"];
-        var newAdress = a.concat(`&roomName=팀1-${i + 1}`);
+        console.log(a);
+        var newAdress = a.split(",");
+        console.log(newAdress);
+        // var newAdress = a.concat(`&roomName=팀1-${i + 1}`);
 
         // console.log(newAdress);
         roomList_child += `
 		<div class="col s3 ">
 					<div class="card card-style">
 						<div class="card-content">
-							<span class="center card-title">${i + 1}번 방</span>
+							<span class="center card-title">${newAdress[0]}</span>
 							<div class="card-action enter-button">
-								<a class="btn center white-text "href="${newAdress}">입장하기</a>
+								<a class="btn center white-text "href="${newAdress[1]}">입장하기</a>
 							</div>
 						</div>
 					</div>

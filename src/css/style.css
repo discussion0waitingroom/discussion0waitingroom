@@ -116,3 +116,9 @@ a {
 #firstpage {
     margin: 20%;
 }
+
+.iconstyle {
+    padding: 3% 0 0 0;
+    font-size: 250%;
+    display: block;
+}
